@@ -28,13 +28,7 @@ path = './DB/'+username
 pathB = os.getcwd()
 
 def pay(name, money):
-    print("making")
-
-def people():
-    print("making")
-
-def ranking():
-    print("making")
+    print('?')
 
 def check_login():
     global path, username, password, login
@@ -99,6 +93,7 @@ def check_login():
 def system():
     print("")
     print('help = "?" enter')
+    print("")
     command = input("Enter command : ")
     if command == '?':
         print("")
@@ -107,8 +102,9 @@ def system():
         print("? - commands print")
         print("info - my info print")
         print('exit - exit')
+        print('member_list - member list print')
         system()
-    if command == "info":
+    elif command == "info":
         print("")
         fp = open(username +' is password'+'.txt', 'r')
         fn = open(username +'.txt', 'r')
@@ -123,8 +119,23 @@ def system():
         print("money : "+format(money_from_DB, ",")+"won")
         print("Account created date : "+username_from_DB[1][:-7])
         system()
-    if command == "exit":
+    elif command == "exit":
         os.system("pause")
+        os.chdir("./DB")
+    elif command == "member_list":
+        os.chdir(pathB)
+        os.chdir("./DB")
+        users = os.listdir()
+        print("")
+        print("[ MEMBER_LIST ]")
+        print("")
+        for i in range(len(users)):
+                print(users[i])
+        system()
+    else:
+        print("")
+        print("wrong command")
+        system()
 
 check_login()
 
