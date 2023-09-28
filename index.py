@@ -40,9 +40,9 @@ def check_login():
     global path, username, password, login
     os.chdir(pathB)
     if username not in os.listdir("./DB"):
-        checkwrongPWandname = input('Do you have a account? (y/n) : ')
+        checkacchave = input('Do you have a account? (y/n) : ')
         checkAutoSingup = input('Do You need auto Sing up? (y/n) : ')
-        if checkwrongPWandname == 'n':
+        if checkacchave == 'n':
             if checkAutoSingup == 'y':
                 print("")
                 print('Sing up Start!')
@@ -61,23 +61,23 @@ def check_login():
                 check_login()
             elif checkAutoSingup == 'n':
                 print('Sing up Start!')
-                usernameB = input("Enter your username: ")
-                passwordB = input("Enter your password: ")
-                path = './DB/'+usernameB
+                username = input("Enter your username: ")
+                password = input("Enter your password: ")
+                path = './DB/'+username
                 os.mkdir(path)
                 os.chdir(path)
-                with open(usernameB +' is password'+'.txt', 'w') as file:
-                    file.write(passwordB)
-                with open(usernameB +'.txt', 'w') as file:
-                    file.write(usernameB)
-                with open(usernameB +'.txt', 'a') as file:
+                with open(username +' is password'+'.txt', 'w') as file:
+                    file.write(password)
+                with open(username +'.txt', 'w') as file:
+                    file.write(username)
+                with open(username +'.txt', 'a') as file:
                     a = str(datetime.today())
                     file.write("\n"+a)
-                with open(usernameB +' is money'+'.txt', 'w') as file:
+                with open(username +' is money'+'.txt', 'w') as file:
                     file.write("10000")
                 print("Sing up successful!")
                 check_login()
-        elif checkwrongPWandname == 'y':
+        elif checkacchave == 'y':
             print("")
             print("Login failed!")
             print("Please check your username and password!")
