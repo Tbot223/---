@@ -75,6 +75,8 @@ def check_login():
             print("")
             print("Login failed!")
             print("Please check your username and password!")
+            username = input("Enter your username: ")
+            password = input("Enter your password: ")
             check_login()
     else:
         os.chdir(path)
